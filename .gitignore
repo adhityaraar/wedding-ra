@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.DS_Store
+.env
+*.log
+
+# Raw originals — webp versions are used by the app
+assets/photos/*.HEIC
+assets/photos/*.JPG

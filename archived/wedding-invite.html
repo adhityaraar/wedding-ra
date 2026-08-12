@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wedding of Riri & Adhit</title>
+  <style>
+    :root {
+      --bg: #f6efe8;
+      --surface: rgba(255, 250, 245, 0.88);
+      --surface-strong: #fff8f2;
+      --border: #d9c1b4;
+      --text: #47302d;
+      --muted: #7a615c;
+      --accent: #a87663;
+      --accent-soft: #ead6ca;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.8), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(211, 176, 158, 0.2), transparent 26%),
+        linear-gradient(180deg, #f9f2eb 0%, #f2e7df 100%);
+      z-index: -2;
+    }
+
+    .canvas-bg {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      margin: 24px 0 10px;
+      display: block;
+    }
+
+    .page {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 24px 16px 80px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 28px 22px;
+      backdrop-filter: blur(4px);
+      margin-bottom: 18px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-size: 0.88rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.9rem, 10vw, 5rem);
+      line-height: 1.05;
+      margin: 12px 0 10px;
+      font-weight: 400;
+    }
+
+    .hero .date {
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    .recipient {
+      margin-top: 40px;
+      padding: 22px 18px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .recipient strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-top: 6px;
+      letter-spacing: 0.03em;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 12px 26px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fffaf6;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-top: 8px;
+    }
+
+    .couple {
+      text-align: center;
+    }
+
+    .monogram {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 18px;
+      display: block;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff, var(--accent-soft));
+      border: 1px solid var(--border);
+    }
+
+    .pair {
+      padding: 18px 0;
+    }
+
+    .pair h3 {
+      font-size: 1.65rem;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+
+    .pair p {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .ampersand {
+      font-size: 2rem;
+      color: var(--accent);
+      margin: 8px 0;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .countdown-box {
+      background: var(--surface-strong);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      text-align: center;
+      padding: 16px 10px;
+    }
+
+    .countdown-box span {
+      display: block;
+      font-size: 1.8rem;
+      color: var(--accent);
+    }
+
+    .event-grid,
+    .gift-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .event-item,
+    .gift-card,
+    .wish-box,
+    .gallery-card {
+      background: var(--surface-strong);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 18px;
+    }
+
+    .event-item h3,
+    .gift-card h3,
+    .wish-box h3 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .event-item p,
+    .gift-card p,
+    .wish-box p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .map-link,
+    .gift-number {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .gallery-card {
+      aspect-ratio: 1 / 1.1;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface-strong);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    input,
+    textarea,
+    select,
+    button {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 13px 14px;
+      font: inherit;
+      color: var(--text);
+      background: #fffdfb;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    button {
+      background: var(--accent);
+      color: #fffaf6;
+      cursor: pointer;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 20px 10px;
+      color: var(--muted);
+    }
+
+    .small {
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 18px 12px 72px;
+      }
+
+      .card {
+        padding: 24px 18px;
+        border-radius: 24px;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="backgroundCanvas" class="canvas-bg"></canvas>
+
+  <main class="page">
+    <section class="card hero" id="home">
+      <p class="eyebrow">The Wedding of</p>
+      <h1>Riri &amp; Adhit</h1>
+      <p>We joyfully invite you to celebrate the beginning of our forever.</p>
+      <p class="date">May 09<sup>th</sup>, 2026</p>
+      <img class="hero-photo" src="assets/photos/cover.webp" alt="Riri and Adhit">
+
+      <div class="recipient">
+        <p class="eyebrow">Dear</p>
+        <strong>Special Guest</strong>
+        <a class="button" href="#details">Open Invitation</a>
+      </div>
+    </section>
+
+    <section class="card couple" id="couple">
+      <div class="section-title">
+        <p class="eyebrow">Bride &amp; Groom</p>
+        <h2>R&amp;A</h2>
+      </div>
+      <canvas id="monogramCanvas" class="monogram" width="120" height="120"></canvas>
+
+      <div class="pair">
+        <h3>Adhit</h3>
+        <p>Son of Mr. Father Name and Mrs. Mother Name</p>
+      </div>
+
+      <div class="ampersand">&amp;</div>
+
+      <div class="pair">
+        <h3>Riri</h3>
+        <p>Daughter of Mr. Father Name and Mrs. Mother Name</p>
+      </div>
+    </section>
+
+    <section class="card" id="save-date">
+      <div class="section-title">
+        <p class="eyebrow">Save The Date</p>
+        <h2>09 May 2026</h2>
+      </div>
+      <p style="text-align: center; color: var(--muted);">Counting the days until we celebrate our wedding together.</p>
+      <div class="countdown" id="countdown">
+        <div class="countdown-box"><span id="days">00</span>Days</div>
+        <div class="countdown-box"><span id="hours">00</span>Hours</div>
+        <div class="countdown-box"><span id="minutes">00</span>Minutes</div>
+        <div class="countdown-box"><span id="seconds">00</span>Seconds</div>
+      </div>
+    </section>
+
+    <section class="card" id="details">
+      <div class="section-title">
+        <p class="eyebrow">Event Details</p>
+        <h2>Celebrate With Us</h2>
+      </div>
+      <div class="event-grid">
+        <article class="event-item">
+          <h3>Reception</h3>
+          <p>Saturday, May 09<sup>th</sup>, 2026</p>
+          <p>19:00 - 21:00 WIB</p>
+          <p>Loca</p>
+          <a class="map-link" href="https://maps.google.com" target="_blank" rel="noreferrer">View Maps</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="card" id="gallery">
+      <div class="section-title">
+        <p class="eyebrow">Moments</p>
+        <h2>Wedding Gallery</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-card"><img src="assets/photos/gallery-01.webp" alt="Wedding photo 1"></div>
+        <div class="gallery-card"><img src="assets/photos/gallery-02.webp" alt="Wedding photo 2"></div>
+        <div class="gallery-card"><img src="assets/photos/gallery-03.webp" alt="Wedding photo 3"></div>
+        <div class="gallery-card"><img src="assets/photos/gallery-04.webp" alt="Wedding photo 4"></div>
+      </div>
+    </section>
+
+    <section class="card" id="rsvp">
+      <div class="section-title">
+        <p class="eyebrow">RSVP</p>
+        <h2>Join Our Celebration</h2>
+      </div>
+      <form>
+        <input type="text" name="name" placeholder="Your name">
+        <select name="attendance">
+          <option value="">Attendance confirmation</option>
+          <option value="attending">Attending with joy</option>
+          <option value="unable">Unable to attend</option>
+        </select>
+        <textarea name="wish" placeholder="Write your warm wishes for Riri &amp; Adhit"></textarea>
+        <button type="button">Send Wish</button>
+      </form>
+    </section>
+
+    <section class="card" id="gift">
+      <div class="section-title">
+        <p class="eyebrow">Wedding Gift</p>
+        <h2>Digital Envelope</h2>
+      </div>
+      <div class="gift-grid">
+        <article class="gift-card">
+          <h3>Your presence is our greatest gift</h3>
+          <p>Your blessing and attendance mean a lot to us. If you wish to share a gift, you may use the account below.</p>
+          <p><strong>Bank Mandiri (008)</strong></p>
+          <p>Account Name: Riri</p>
+          <span class="gift-number">0001234567890</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="card wish-box" id="thanks">
+      <div class="section-title">
+        <p class="eyebrow">Thank You</p>
+        <h2>From The Bottom of Our Hearts</h2>
+      </div>
+      <p>Thank you for being part of our big day. We are grateful for your love, support, and prayers as we begin this new chapter together.</p>
+      <p style="text-align:center; margin-top: 18px;"><strong>Riri &amp; Adhit</strong></p>
+      <p class="small" style="text-align:center; margin-top: 8px;">09 May 2026</p>
+    </section>
+
+    <footer class="footer">
+      <p>Made for R&amp;A wedding invitation</p>
+    </footer>
+  </main>
+
+  <script>
+    const eventDate = new Date('2026-05-09T19:00:00+07:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    const bgCanvas = document.getElementById('backgroundCanvas');
+    const bgCtx = bgCanvas.getContext('2d');
+
+    function drawBackground() {
+      bgCanvas.width = window.innerWidth;
+      bgCanvas.height = window.innerHeight;
+
+      bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+
+      for (let i = 0; i < 18; i += 1) {
+        const x = (bgCanvas.width / 18) * i + 30;
+        const y = 60 + (i % 2) * 60;
+        bgCtx.beginPath();
+        bgCtx.strokeStyle = 'rgba(168, 118, 99, 0.18)';
+        bgCtx.lineWidth = 2;
+        bgCtx.arc(x, y, 24, 0, Math.PI * 2);
+        bgCtx.stroke();
+
+        bgCtx.beginPath();
+        bgCtx.moveTo(x, y + 20);
+        bgCtx.quadraticCurveTo(x - 12, y + 50, x - 4, y + 78);
+        bgCtx.stroke();
+      }
+
+      for (let i = 0; i < 16; i += 1) {
+        const x = (bgCanvas.width / 16) * i + 40;
+        const y = bgCanvas.height - 120 - (i % 3) * 30;
+        bgCtx.beginPath();
+        bgCtx.fillStyle = 'rgba(234, 214, 202, 0.35)';
+        bgCtx.ellipse(x, y, 28, 16, Math.PI / 5, 0, Math.PI * 2);
+        bgCtx.fill();
+      }
+    }
+
+    drawBackground();
+    window.addEventListener('resize', drawBackground);
+
+    const monogramCanvas = document.getElementById('monogramCanvas');
+    const monoCtx = monogramCanvas.getContext('2d');
+
+    monoCtx.clearRect(0, 0, 120, 120);
+    monoCtx.fillStyle = '#fffaf6';
+    monoCtx.beginPath();
+    monoCtx.arc(60, 60, 58, 0, Math.PI * 2);
+    monoCtx.fill();
+
+    monoCtx.strokeStyle = '#d9c1b4';
+    monoCtx.lineWidth = 1.5;
+    monoCtx.beginPath();
+    monoCtx.arc(60, 60, 50, 0, Math.PI * 2);
+    monoCtx.stroke();
+
+    monoCtx.fillStyle = '#a87663';
+    monoCtx.font = '38px Georgia';
+    monoCtx.textAlign = 'center';
+    monoCtx.textBaseline = 'middle';
+    monoCtx.fillText('R&A', 60, 64);
+  </script>
+</body>
+</html>
