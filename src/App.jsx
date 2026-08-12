@@ -317,6 +317,11 @@ export default function App() {
             <span />
             <span />
           </div>
+          <div className="event-card event-card-compact">
+            <h3>Akad</h3>
+            <p className="event-time">07:00 - 09:00 WIB</p>
+          </div>
+          <div className="event-divider" aria-hidden="true" />
           <div className="event-card">
             <h3>Reception</h3>
             <p className="event-time">11:00 - 13:00 WIB</p>
