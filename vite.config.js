@@ -33,7 +33,7 @@ export default defineConfig({
             );
             return isUi ? "assets/ui/[name]-[hash][extname]" : "assets/photos/[name]-[hash][extname]";
           }
-          if (ext === ".mp3" || ext === ".ogg" || ext === ".wav") {
+          if (ext === ".mp3" || ext === ".mp4" || ext === ".ogg" || ext === ".wav") {
             return "assets/audio/[name]-[hash][extname]";
           }
           if (ext === ".css") {
