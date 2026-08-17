@@ -13,7 +13,7 @@ const UI = {
   ornament: new URL("../assets/ui/ornament.png", import.meta.url).href,
   music: new URL("../assets/ui/music.png", import.meta.url).href,
 };
-const AUDIO_SRC = new URL("../assets/audio/wedding-musinc.mp4", import.meta.url).href;
+const AUDIO_SRC = new URL("../assets/audio/wedding-music.mp4", import.meta.url).href;
 const GALLERY_PHOTOS = [
   { src: new URL("../assets/photos/gallery-01.webp", import.meta.url).href, cls: "tall" },
   { src: new URL("../assets/photos/gallery-02.webp", import.meta.url).href, cls: "" },
