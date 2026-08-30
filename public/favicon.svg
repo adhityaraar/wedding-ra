@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- background circle -->
+  <circle cx="32" cy="32" r="32" fill="#2d1a0e"/>
+
+  <!-- GROOM (left) -->
+  <!-- blangkon (Sundanese groom headwear) -->
+  <ellipse cx="20" cy="16" rx="7" ry="4.5" fill="#8B6914"/>
+  <rect x="13" y="14" width="14" height="5" rx="2" fill="#a07820"/>
+  <polygon points="20,10 15,15 25,15" fill="#c8971e"/>
+  <!-- groom head -->
+  <circle cx="20" cy="22" r="5.5" fill="#c8956a"/>
+  <!-- groom body (baju koko / beskap) -->
+  <path d="M13 36 Q14 28 20 27 Q26 28 27 36 L27 46 L13 46 Z" fill="#2a4a2a"/>
+  <!-- groom collar -->
+  <path d="M18 27 L20 31 L22 27" stroke="#fff" stroke-width="1" fill="none"/>
+
+  <!-- BRIDE (right) -->
+  <!-- siger (Sundanese bride crown) -->
+  <path d="M44 8 L40 15 L44 13 L48 15 Z" fill="#c8971e"/>
+  <ellipse cx="44" cy="15" rx="7" ry="3" fill="#a07820"/>
+  <!-- decorative siger points -->
+  <polygon points="44,7 42,12 46,12" fill="#e6b830"/>
+  <polygon points="40,10 38,14 42,14" fill="#e6b830"/>
+  <polygon points="48,10 46,14 50,14" fill="#e6b830"/>
+  <!-- bride head -->
+  <circle cx="44" cy="22" r="5.5" fill="#c8956a"/>
+  <!-- bride kebaya body -->
+  <path d="M37 36 Q38 28 44 27 Q50 28 51 36 L51 46 L37 46 Z" fill="#8b1a4a"/>
+  <!-- kebaya neckline -->
+  <path d="M42 27 L44 30 L46 27" stroke="#e6b830" stroke-width="1" fill="none"/>
+
+  <!-- joined hands in center -->
+  <path d="M27 38 Q32 36 37 38" stroke="#c8956a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- gold dots decoration -->
+  <circle cx="32" cy="50" r="1.2" fill="#c8971e"/>
+  <circle cx="28" cy="51" r="0.9" fill="#c8971e"/>
+  <circle cx="36" cy="51" r="0.9" fill="#c8971e"/>
+</svg>
