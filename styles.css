@@ -42,6 +42,7 @@
   --sunda-ivory: #f7f2e8;
   --sunda-green: #263c33;
   --sunda-gold: #a27e45;
+  --sunda-gold-muted: #b8a07a;
   --sunda-green-filter: brightness(0) saturate(100%) invert(21%) sepia(13%) saturate(984%) hue-rotate(106deg) brightness(91%) contrast(89%);
   --sunda-gold-filter: brightness(0) saturate(100%) invert(54%) sepia(25%) saturate(1019%) hue-rotate(358deg) brightness(89%) contrast(86%);
   --paper-overlay: rgba(255, 255, 255, 0.2);
@@ -1414,7 +1415,7 @@ img {
 }
 
 .thanks-amp {
-  color: var(--sunda-gold);
+  color: var(--sunda-gold-muted);
 }
 
 .thanks-date {
