@@ -6,7 +6,6 @@ const PHOTOS = {
   cover: new URL("../assets/photos/cover.webp", import.meta.url).href,
   groom: new URL("../assets/photos/groom.webp", import.meta.url).href,
   bride: new URL("../assets/photos/bride.webp", import.meta.url).href,
-  logo: new URL("../assets/photos/logo.PNG", import.meta.url).href,
 };
 const UI = {
   flourish: new URL("../assets/ui/flourish.png", import.meta.url).href,
@@ -43,14 +42,6 @@ function esc(v) {
 }
 function getWishes() {
   try { return JSON.parse(localStorage.getItem(WISH_KEY) || "[]"); } catch { return []; }
-}
-
-function SectionBreak() {
-  return (
-    <div className="section-break" aria-hidden="true">
-      <img className="section-logo" src={PHOTOS.logo} alt="" />
-    </div>
-  );
 }
 
 /* ── Countdown hook ── */
@@ -195,7 +186,7 @@ export default function App() {
           <h1>Raden Adhitya &amp; Riri Afrani</h1>
           <p className="guest-copy">
             Dear <strong>{guestName}</strong>,<br />
-            We joyfully invite you to celebrate<br />the beginning of our forever.
+            Please be a part of our happiest moment
           </p>
           <button className="light-button" onClick={handleOpen} type="button">
             Open Invitation
@@ -228,8 +219,6 @@ export default function App() {
             <img className="wayang wayang-right-large" src={UI.floralSunda} alt="" />
           </div>
         </section>
-        <SectionBreak />
-
         {/* ② Couple */}
         <section className="section-panel couple-panel" id="couple">
           <div className="section-heading couple-heading">
@@ -251,8 +240,6 @@ export default function App() {
             <p>Daughter of Mr Hari Sukriyadi and Mrs Rina Rosdiana</p>
           </div>
         </section>
-        <SectionBreak />
-
         {/* ③ Gallery */}
         <section id="gallery" aria-label="Wedding gallery">
           <div className="gallery-panel">
