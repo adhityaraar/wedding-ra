@@ -197,7 +197,12 @@ img {
 }
 
 .guest-copy strong {
-  font-weight: 400;
+  display: inline-block;
+  color: #ffffff;
+  font-family: var(--display);
+  font-size: clamp(1.55rem, 5.2vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.12;
 }
 
 .light-button,
@@ -238,14 +243,14 @@ img {
   padding: 8px 24px;
   font-size: 1.18rem;
   font-weight: 400;
-  background: #0f62fe;
-  color: #ffffff;
-  border-color: #0f62fe;
+  color: var(--sunda-green);
+  background: #ffffff;
+  border-color: #ffffff;
 }
 
 .opening-details .light-button:hover {
-  background: #0353e9;
-  border-color: #0353e9;
+  background: var(--sunda-ivory);
+  border-color: var(--sunda-ivory);
 }
 
 .dark-button {
