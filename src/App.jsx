@@ -194,7 +194,7 @@ export default function App() {
   }
   function handleGiftSubmit(e) {
     e.preventDefault();
-    setGiftStatus("Gift confirmation received. Thank you for your kindness.");
+    setGiftStatus("Gift confirmation completed on this device. Thank you for your kindness.");
     setGiftStep(3);
     setUploadLabel("Choose file");
     e.currentTarget.reset();
@@ -520,7 +520,7 @@ export default function App() {
 
         {/* ⑨ Thank You */}
         <section className="section-panel thanks-panel continuous-section" id="thanks">
-          <h2>The Wedding of<br />Raden Adhitya &amp; Riri Afrani</h2>
+          <h2>The Wedding of<br />Raden Adhitya <span className="thanks-amp">&amp;</span> Riri Afrani</h2>
           <p className="thanks-date">{EVENT_LABEL}</p>
           <img className="thanks-flourish" src={UI.flourish} alt="" aria-hidden="true" />
           <div className="thanks-wayang thanks-floral-sunda" aria-hidden="true">

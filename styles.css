@@ -45,6 +45,7 @@
   --sunda-gold-muted: #b8a07a;
   --sunda-green-filter: brightness(0) saturate(100%) invert(21%) sepia(13%) saturate(984%) hue-rotate(106deg) brightness(91%) contrast(89%);
   --sunda-gold-filter: brightness(0) saturate(100%) invert(54%) sepia(25%) saturate(1019%) hue-rotate(358deg) brightness(89%) contrast(86%);
+  --button-radius: 8px;
   --paper-overlay: rgba(255, 255, 255, 0.2);
   --paper-overlay-soft: rgba(255, 255, 255, 0.16);
   --motion-standard: cubic-bezier(0.2, 0, 0.38, 0.9);
@@ -207,7 +208,7 @@ img {
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  border-radius: 0;
+  border-radius: var(--button-radius);
   padding: 14px 22px;
   cursor: pointer;
   font-family: var(--serif);
@@ -229,7 +230,7 @@ img {
   color: var(--cds-text-primary);
   background: var(--cds-layer-01);
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24);
-  border-radius: 999px;
+  border-radius: var(--button-radius);
 }
 
 .opening-details .light-button {
@@ -1507,7 +1508,7 @@ img {
   min-height: 64px;
   padding: 0;
   border: 1px solid rgba(162, 126, 69, 0.48);
-  border-radius: 0;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(16px);
@@ -1567,7 +1568,7 @@ img {
   height: 48px;
   padding: 0;
   border: 1px solid var(--sunda-gold);
-  border-radius: 0;
+  border-radius: 50%;
   background: var(--sunda-green);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
   cursor: pointer;
@@ -1623,7 +1624,7 @@ img {
   right: 16px;
   min-height: 44px;
   border: 1px solid rgba(244, 244, 244, 0.36);
-  border-radius: 0;
+  border-radius: var(--button-radius);
   padding: 10px 14px;
   color: var(--cds-text-on-color);
   background: rgba(22, 22, 22, 0.7);
@@ -1641,6 +1642,7 @@ img {
   width: 48px !important;
   height: 48px !important;
   min-height: 48px !important;
+  border-radius: 50% !important;
 }
 
 body.motion-ready .section-panel,
