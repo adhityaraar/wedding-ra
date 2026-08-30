@@ -436,7 +436,7 @@ export default function App() {
 
         {/* ⑨ Thank You */}
         <section className="section-panel thanks-panel continuous-section" id="thanks">
-          <h2>Raden Adhitya<br /><span className="thanks-amp">&amp;</span><br />Riri Afrani</h2>
+          <h2>Raden Adhitya &amp; Riri Afrani</h2>
           <p className="thanks-date">{EVENT_LABEL}</p>
           <img className="thanks-flourish" src={UI.flourish} alt="" aria-hidden="true" />
           <div className="thanks-wayang thanks-floral-sunda" aria-hidden="true">
