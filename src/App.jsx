@@ -183,7 +183,7 @@ export default function App() {
         <div className="opening-shade" aria-hidden="true" />
         <div className="opening-details">
           <p className="kicker">The Wedding of</p>
-          <h1>Riri &amp; Adhit</h1>
+          <h1>Riri &amp; Adhitya</h1>
           <p className="guest-copy">Dear</p>
           <p className="guest-copy"><strong>{guestName}</strong></p>
           <p className="guest-copy">Please be a part of our happiest moment</p>
