@@ -22,30 +22,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "IBM Plex Sans Local";
-  src: url("assets/fonts/ibm-plex-sans-400.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans Local";
-  src: url("assets/fonts/ibm-plex-sans-500.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans Local";
-  src: url("assets/fonts/ibm-plex-sans-600.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --cds-background: #f6f5f5;
   --cds-layer-01: #ffffff;
@@ -63,7 +39,6 @@
   --cds-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
   --display: "Crimson Local", Georgia, serif;
   --serif: "Playfair Local", Georgia, serif;
-  --plex: "IBM Plex Sans Local", "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   --paper-overlay: rgba(255, 255, 255, 0.2);
   --paper-overlay-soft: rgba(255, 255, 255, 0.16);
   --motion-standard: cubic-bezier(0.2, 0, 0.38, 0.9);
@@ -85,7 +60,7 @@ body {
   background:
     linear-gradient(var(--paper-overlay), var(--paper-overlay)),
     url("assets/ui/texture.png") center top / 820px auto;
-  font-family: var(--plex);
+  font-family: var(--serif);
   font-size: 16px;
   line-height: 1.5;
   text-rendering: optimizeLegibility;
@@ -188,7 +163,7 @@ img {
 .kicker {
   margin: 0 0 8px;
   color: inherit;
-  font-family: var(--plex);
+  font-family: var(--serif);
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -200,7 +175,7 @@ img {
   max-width: 1040px;
   margin: 0 auto 24px;
   font-family: var(--display);
-  font-size: clamp(3.35rem, 9vw, 7.4rem);
+  font-size: clamp(3.7rem, 5.65vw, 5.1rem);
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.02;
@@ -210,7 +185,7 @@ img {
   margin: 0 0 24px;
   color: #f4f4f4;
   font-family: var(--serif);
-  font-size: 1.125rem;
+  font-size: 1.18rem;
   line-height: 1.35;
 }
 
@@ -229,7 +204,7 @@ img {
   border-radius: 0;
   padding: 14px 22px;
   cursor: pointer;
-  font-family: var(--plex);
+  font-family: var(--serif);
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0;
@@ -249,6 +224,21 @@ img {
   background: var(--cds-layer-01);
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24);
   border-radius: 999px;
+}
+
+.opening-details .light-button {
+  min-height: 44px;
+  padding: 8px 24px;
+  font-size: 1.18rem;
+  font-weight: 400;
+  background: #0f62fe;
+  color: #ffffff;
+  border-color: #0f62fe;
+}
+
+.opening-details .light-button:hover {
+  background: #0353e9;
+  border-color: #0353e9;
 }
 
 .dark-button {
@@ -471,7 +461,7 @@ img {
   height: 260px;
   margin: 0;
   padding: 0;
-  opacity: 0.92;
+  opacity: 0.76;
   overflow: visible;
   pointer-events: none;
 }
@@ -489,30 +479,14 @@ img {
   left: 16px;
   z-index: 1;
   width: clamp(126px, 34vw, 158px);
-  transform: rotate(-12deg);
-}
-
-.wayang-left-small {
-  left: clamp(70px, 17vw, 96px);
-  bottom: 2px;
-  z-index: 2;
-  width: clamp(90px, 24vw, 118px);
-  transform: rotate(-10deg);
-}
-
-.wayang-right-small {
-  right: clamp(70px, 17vw, 96px);
-  bottom: 2px;
-  z-index: 2;
-  width: clamp(90px, 24vw, 118px);
-  transform: rotate(10deg);
+  transform: rotate(-8deg);
 }
 
 .wayang-right-large {
   right: 16px;
   z-index: 1;
   width: clamp(126px, 34vw, 158px);
-  transform: rotate(12deg);
+  transform: rotate(8deg);
 }
 
 .person {
@@ -1071,7 +1045,7 @@ img {
 
 .bank-card .bank-label {
   color: var(--cds-text-secondary);
-  font-family: var(--plex);
+  font-family: var(--serif);
   font-size: 0.82rem;
   text-transform: uppercase;
 }
@@ -1218,6 +1192,7 @@ img {
   inset: auto 0 0;
   z-index: 1;
   height: 260px;
+  opacity: 0.76;
   pointer-events: none;
 }
 
@@ -1230,24 +1205,12 @@ img {
 
 .thanks-wayang img:nth-child(1) {
   left: -10px;
-  transform: rotate(-11deg);
-}
-
-.thanks-wayang img:nth-child(2) {
-  left: 72px;
-  width: clamp(78px, 21vw, 112px);
   transform: rotate(-8deg);
 }
 
-.thanks-wayang img:nth-child(3) {
-  right: 72px;
-  width: clamp(78px, 21vw, 112px);
-  transform: rotate(8deg);
-}
-
-.thanks-wayang img:nth-child(4) {
+.thanks-wayang img:nth-child(2) {
   right: -10px;
-  transform: rotate(11deg);
+  transform: rotate(8deg);
 }
 
 .footer-panel {
@@ -1532,18 +1495,6 @@ body.motion-ready .gallery-item:nth-child(6) {
     width: clamp(176px, 14vw, 230px);
   }
 
-  .cover-wayang .wayang-left-small {
-    left: clamp(126px, 11vw, 184px);
-    bottom: 4px;
-    width: clamp(120px, 9.4vw, 160px);
-  }
-
-  .cover-wayang .wayang-right-small {
-    right: clamp(126px, 11vw, 184px);
-    bottom: 4px;
-    width: clamp(120px, 9.4vw, 160px);
-  }
-
   .cover-wayang .wayang-right-large {
     right: clamp(58px, 4.8vw, 88px);
     bottom: 0;
@@ -1656,16 +1607,6 @@ body.motion-ready .gallery-item:nth-child(6) {
   }
 
   .thanks-wayang img:nth-child(2) {
-    left: clamp(136px, 12vw, 210px);
-    width: clamp(122px, 10vw, 164px);
-  }
-
-  .thanks-wayang img:nth-child(3) {
-    right: clamp(136px, 12vw, 210px);
-    width: clamp(122px, 10vw, 164px);
-  }
-
-  .thanks-wayang img:nth-child(4) {
     right: clamp(54px, 5vw, 94px);
   }
 
@@ -1744,20 +1685,6 @@ body.motion-ready .gallery-item:nth-child(6) {
     right: 58px;
   }
 
-  .cover-wayang .wayang-left-small,
-  .cover-wayang .wayang-right-small {
-    bottom: 2px;
-    width: 104px;
-  }
-
-  .cover-wayang .wayang-left-small {
-    left: 106px;
-  }
-
-  .cover-wayang .wayang-right-small {
-    right: 106px;
-  }
-
 }
 
 @media (max-width: 899px) {
@@ -1811,20 +1738,6 @@ body.motion-ready .gallery-item:nth-child(6) {
 
   .cover-wayang .wayang-right-large {
     right: clamp(2px, 2.5vw, 12px);
-  }
-
-  .cover-wayang .wayang-left-small,
-  .cover-wayang .wayang-right-small {
-    bottom: 1px;
-    width: clamp(50px, 15vw, 70px);
-  }
-
-  .cover-wayang .wayang-left-small {
-    left: clamp(55px, 16vw, 76px);
-  }
-
-  .cover-wayang .wayang-right-small {
-    right: clamp(55px, 16vw, 76px);
   }
 
 }
