@@ -530,7 +530,6 @@ export default function App() {
         </section>
 
         <footer className="footer-panel">
-          <p>Raden Adhitya &amp; Riri Afrani &middot; {EVENT_LABEL}</p>
         </footer>
       </div>
 
