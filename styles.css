@@ -371,13 +371,7 @@ img {
 }
 
 .invite-cover::before {
-  display: block;
-  inset: 12px;
-  z-index: 1;
-  height: auto;
-  border: 1px solid rgba(162, 126, 69, 0.38);
-  background: none;
-  pointer-events: none;
+  display: none;
 }
 
 .invite-cover::after {
