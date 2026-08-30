@@ -79,8 +79,9 @@ export default function App() {
   const [uploadLabel, setUploadLabel] = useState("Choose file");
   const [activeSection, setActiveSection] = useState("home");
 
-  const audioRef   = useRef(null);
-  const countdown  = useCountdown();
+  const audioRef = useRef(null);
+  const resumeAfterVisibilityRef = useRef(false);
+  const countdown = useCountdown();
 
   /* guest name from ?to= */
   const guestName = new URLSearchParams(window.location.search).get("to") || "Special Guest";
@@ -93,6 +94,31 @@ export default function App() {
     if (!audioRef.current) return;
     if (audioRef.current.paused) { await playMusic(); }
     else { audioRef.current.pause(); setPlaying(false); }
+  }, [playMusic]);
+
+  /* pause music in background tabs and resume when returning */
+  useEffect(() => {
+    async function handleVisibilityChange() {
+      const audio = audioRef.current;
+      if (!audio) return;
+
+      if (document.hidden) {
+        resumeAfterVisibilityRef.current = !audio.paused;
+        if (resumeAfterVisibilityRef.current) {
+          audio.pause();
+          setPlaying(false);
+        }
+        return;
+      }
+
+      if (resumeAfterVisibilityRef.current) {
+        resumeAfterVisibilityRef.current = false;
+        await playMusic();
+      }
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, [playMusic]);
 
   /* open invitation */
@@ -213,8 +239,6 @@ export default function App() {
           </div>
           <div className="cover-wayang cover-floral-sunda" aria-hidden="true">
             <img className="wayang wayang-left-large" src={UI.floralSunda} alt="" />
-            <img className="wayang wayang-left-small" src={UI.floralSunda} alt="" />
-            <img className="wayang wayang-right-small" src={UI.floralSunda} alt="" />
             <img className="wayang wayang-right-large" src={UI.floralSunda} alt="" />
           </div>
         </section>
@@ -412,12 +436,10 @@ export default function App() {
 
         {/* ⑨ Thank You */}
         <section className="section-panel thanks-panel continuous-section" id="thanks">
-          <h2>The Wedding of<br />Raden Adhitya &amp; Riri Afrani</h2>
+          <h2>The Wedding of<br />Raden Adhitya<br />&amp;<br />Riri Afrani</h2>
           <p className="thanks-date">{EVENT_LABEL}</p>
           <img className="thanks-flourish" src={UI.flourish} alt="" aria-hidden="true" />
           <div className="thanks-wayang thanks-floral-sunda" aria-hidden="true">
-            <img src={UI.floralSunda} alt="" />
-            <img src={UI.floralSunda} alt="" />
             <img src={UI.floralSunda} alt="" />
             <img src={UI.floralSunda} alt="" />
           </div>
