@@ -10,7 +10,7 @@ const PHOTOS = {
 };
 const UI = {
   flourish: new URL("../assets/ui/flourish.png", import.meta.url).href,
-  ornament: new URL("../assets/ui/ornament.png", import.meta.url).href,
+  floralSunda: new URL("../assets/ui/floral-sunda.webp", import.meta.url).href,
   music: new URL("../assets/ui/music.png", import.meta.url).href,
 };
 const AUDIO_SRC = new URL("../assets/audio/wedding-music.mp4", import.meta.url).href;
@@ -221,11 +221,11 @@ export default function App() {
             </h1>
             <p className="date">{EVENT_FULL_DATE}</p>
           </div>
-          <div className="cover-wayang" aria-hidden="true">
-            <img className="wayang wayang-left-large" src={UI.ornament} alt="" />
-            <img className="wayang wayang-left-small" src={UI.ornament} alt="" />
-            <img className="wayang wayang-right-small" src={UI.ornament} alt="" />
-            <img className="wayang wayang-right-large" src={UI.ornament} alt="" />
+          <div className="cover-wayang cover-floral-sunda" aria-hidden="true">
+            <img className="wayang wayang-left-large" src={UI.floralSunda} alt="" />
+            <img className="wayang wayang-left-small" src={UI.floralSunda} alt="" />
+            <img className="wayang wayang-right-small" src={UI.floralSunda} alt="" />
+            <img className="wayang wayang-right-large" src={UI.floralSunda} alt="" />
           </div>
         </section>
         <SectionBreak />
@@ -278,10 +278,10 @@ export default function App() {
               <p>{EVENT_LABEL}</p>
             </div>
             <div className="countdown-stage">
-              <div className="save-wayang" aria-hidden="true">
-                <img src={UI.ornament} alt="" />
-                <img src={UI.ornament} alt="" />
-                <img src={UI.ornament} alt="" />
+              <div className="save-wayang save-floral-sunda" aria-hidden="true">
+                <img src={UI.floralSunda} alt="" />
+                <img src={UI.floralSunda} alt="" />
+                <img src={UI.floralSunda} alt="" />
               </div>
               <div className="countdown" role="timer" aria-label="Countdown to the wedding">
                 <div><strong>{countdown.days}</strong><span>Days</span></div>
@@ -429,11 +429,11 @@ export default function App() {
           <h2>The Wedding of<br />Raden Adhitya &amp; Riri Afrani</h2>
           <p className="thanks-date">{EVENT_LABEL}</p>
           <img className="thanks-flourish" src={UI.flourish} alt="" aria-hidden="true" />
-          <div className="thanks-wayang" aria-hidden="true">
-            <img src={UI.ornament} alt="" />
-            <img src={UI.ornament} alt="" />
-            <img src={UI.ornament} alt="" />
-            <img src={UI.ornament} alt="" />
+          <div className="thanks-wayang thanks-floral-sunda" aria-hidden="true">
+            <img src={UI.floralSunda} alt="" />
+            <img src={UI.floralSunda} alt="" />
+            <img src={UI.floralSunda} alt="" />
+            <img src={UI.floralSunda} alt="" />
           </div>
         </section>
 

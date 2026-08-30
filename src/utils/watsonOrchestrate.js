@@ -6,7 +6,7 @@ export function initWatsonOrchestrate() {
   // Load configuration from environment variables
   const orchestrationID = import.meta.env.VITE_WXO_ORCHESTRATION_ID;
   const hostURL = import.meta.env.VITE_WXO_HOST_URL;
-  const rootElementID = import.meta.env.VITE_WXO_ROOT_ELEMENT_ID || "wxo-chat-root";
+  const rootElementID = import.meta.env.VITE_WXO_ROOT_ELEMENT_ID || "root";
   const agentId = import.meta.env.VITE_WXO_AGENT_ID;
   const agentEnvironmentId = import.meta.env.VITE_WXO_AGENT_ENVIRONMENT_ID;
   const crn = import.meta.env.VITE_WXO_CRN;

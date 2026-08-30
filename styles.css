@@ -906,6 +906,17 @@ img {
   font-size: 1.28rem;
 }
 
+.event-card-compact .event-time {
+  margin-bottom: 0;
+}
+
+.event-divider {
+  width: min(100%, 180px);
+  height: 1px;
+  margin: 38px auto;
+  background: linear-gradient(90deg, transparent, var(--cds-border-strong), transparent);
+}
+
 .small-button {
   width: auto;
   min-width: 138px;
