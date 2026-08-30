@@ -184,10 +184,8 @@ export default function App() {
         <div className="opening-details">
           <p className="kicker">The Wedding of</p>
           <h1>Raden Adhitya &amp; Riri Afrani</h1>
-          <p className="guest-copy">
-            Dear <strong>{guestName}</strong>,<br />
-            Please be a part of our happiest moment
-          </p>
+          <p className="guest-copy">Dear <strong>{guestName}</strong>,</p>
+          <p className="guest-copy">Please be a part of our happiest moment</p>
           <button className="light-button" onClick={handleOpen} type="button">
             Open Invitation
           </button>
