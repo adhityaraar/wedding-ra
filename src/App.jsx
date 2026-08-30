@@ -35,6 +35,13 @@ const SAMPLE_WISHES = [
 ];
 
 function pad(v) { return String(v).padStart(2, "0"); }
+function formatRupiah(v) {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    maximumFractionDigits: 0,
+  }).format(Number(v) || 0);
+}
 function esc(v) {
   return String(v)
     .replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
@@ -76,6 +83,8 @@ export default function App() {
   const [rsvpStatus,  setRsvpStatus] = useState(null);
   const [giftStatus,  setGiftStatus] = useState("");
   const [giftStep,    setGiftStep]   = useState(1);
+  const [giftDetails, setGiftDetails] = useState(null);
+  const [giftCopyStatus, setGiftCopyStatus] = useState("");
   const [uploadLabel, setUploadLabel] = useState("Choose file");
   const [activeSection, setActiveSection] = useState("home");
 
@@ -166,12 +175,36 @@ export default function App() {
 
   /* Gift */
   function handleCopyAccount() {
-    navigator.clipboard.writeText("123456789").then(() => setGiftStatus("Copied!")).catch(() => setGiftStatus("123456789"));
+    navigator.clipboard.writeText("123456789")
+      .then(() => setGiftCopyStatus("Account number copied"))
+      .catch(() => setGiftCopyStatus("Account number: 123456789"));
+  }
+  function handleGiftNext(e) {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    setGiftDetails({
+      bank: fd.get("bank"),
+      name: fd.get("name"),
+      accountName: fd.get("accountName"),
+      message: fd.get("message"),
+      amount: fd.get("amount"),
+    });
+    setGiftStatus("");
+    setGiftStep(2);
   }
   function handleGiftSubmit(e) {
     e.preventDefault();
-    setGiftStatus("Gift confirmation saved. Thank you!");
-    setGiftStep(1); setUploadLabel("Choose file"); e.currentTarget.reset();
+    setGiftStatus("Gift confirmation received. Thank you for your kindness.");
+    setGiftStep(3);
+    setUploadLabel("Choose file");
+    e.currentTarget.reset();
+  }
+  function resetGiftFlow() {
+    setGiftStep(1);
+    setGiftDetails(null);
+    setGiftStatus("");
+    setGiftCopyStatus("");
+    setUploadLabel("Choose file");
   }
 
   /* Wishes */
@@ -380,31 +413,82 @@ export default function App() {
         <section className="section-panel gift-panel continuous-section" id="gift">
           <div className="section-heading">
             <h2>Wedding Gift</h2>
-            <p>Your blessing and presence at our wedding are enough for us. If you wish to share a token of love, we have prepared a digital envelope.</p>
+            <p>Your blessing and presence at our wedding are enough for us. If you wish to share a token of love, we have prepared a digital envelope for your convenience.</p>
           </div>
-          <div className={`gift-step${giftStep === 1 ? " is-active" : ""}`} data-step="1">
+
+          <form className={`gift-step gift-details-step${giftStep === 1 ? " is-active" : ""}`} data-step="1" onSubmit={handleGiftNext}>
+            <label className="gift-bank-select">
+              <span>Choose destination bank</span>
+              <select name="bank" defaultValue="mandiri" required>
+                <option value="mandiri">Bank Mandiri</option>
+              </select>
+            </label>
             <div className="bank-card">
-              <p className="bank-label">Destination bank</p>
+              <p className="bank-label">Bank Mandiri</p>
               <h3>Bank Mandiri (008)</h3>
               <p>Account Number</p>
               <p className="account-number" id="accountNumber">123456789</p>
-              <p>Riri Afrani</p>
+              <p className="account-owner">a/n Riri Afrani</p>
               <button className="ghost-button" onClick={handleCopyAccount} type="button">Copy Number</button>
+              <p className="gift-copy-status" aria-live="polite">{giftCopyStatus}</p>
             </div>
-            <p className="form-status" aria-live="polite">{giftStatus}</p>
-            <button className="dark-button" onClick={() => setGiftStep(2)} type="button">Confirm Transfer</button>
-          </div>
+
+            <div className="gift-form-heading">
+              <h3>Fill the form below, please</h3>
+              <p>Tell us who the gift is from before uploading your transfer proof.</p>
+            </div>
+
+            <div className="stack-form gift-details-form">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" defaultValue={guestName} placeholder="Your name" required autoComplete="name" />
+              </label>
+              <label>
+                <span>Account owner name</span>
+                <input type="text" name="accountName" placeholder="Name on the sender account" required />
+              </label>
+              <label>
+                <span>Message</span>
+                <textarea name="message" rows={3} placeholder="Write a short message (optional)" />
+              </label>
+              <label>
+                <span>Amount</span>
+                <div className="amount-field">
+                  <span aria-hidden="true">Rp</span>
+                  <input type="number" name="amount" min="1" step="1" inputMode="numeric" placeholder="0" required />
+                </div>
+              </label>
+              <button className="dark-button gift-next-button" type="submit">Next <span aria-hidden="true">→</span></button>
+            </div>
+          </form>
+
           <div className={`gift-step${giftStep === 2 ? " is-active" : ""}`} data-step="2">
             <h3>Upload transfer proof</h3>
-            <p>Attach a screenshot so we know your gift arrived safely.</p>
-            <form className="stack-form" onSubmit={handleGiftSubmit}>
+            <p>Attach a screenshot or photo of the transfer receipt.</p>
+            {giftDetails && (
+              <div className="gift-summary" aria-label="Gift details summary">
+                <div><span>From</span><strong>{giftDetails.name}</strong></div>
+                <div><span>Account owner</span><strong>{giftDetails.accountName}</strong></div>
+                <div><span>Amount</span><strong>{formatRupiah(giftDetails.amount)}</strong></div>
+              </div>
+            )}
+            <form className="stack-form gift-proof-form" onSubmit={handleGiftSubmit}>
               <label className="upload-box">
+                <span className="upload-plus" aria-hidden="true">+</span>
                 <span>{uploadLabel}</span>
-                <input type="file" name="proof" accept="image/*" onChange={(e) => setUploadLabel(e.target.files[0]?.name || "Choose file")} />
+                <small>JPG, PNG, or WEBP</small>
+                <input type="file" name="proof" accept="image/*" required onChange={(e) => setUploadLabel(e.target.files[0]?.name || "Choose file")} />
               </label>
-              <button className="dark-button" type="submit">Submit Proof</button>
+              <button className="dark-button" type="submit">Confirm</button>
             </form>
-            <button className="ghost-button" onClick={() => setGiftStep(1)} type="button">Back</button>
+            <button className="ghost-button" onClick={() => setGiftStep(1)} type="button">← Back</button>
+          </div>
+
+          <div className={`gift-step gift-success${giftStep === 3 ? " is-active" : ""}`} data-step="3" aria-live="polite">
+            <span className="gift-success-mark" aria-hidden="true">✓</span>
+            <h3>Thank you</h3>
+            <p>{giftStatus}</p>
+            <button className="ghost-button" onClick={resetGiftFlow} type="button">Send another gift</button>
           </div>
         </section>
 
@@ -436,7 +520,7 @@ export default function App() {
 
         {/* ⑨ Thank You */}
         <section className="section-panel thanks-panel continuous-section" id="thanks">
-          <h2>The Wedding of Raden Adhitya &amp; Riri Afrani</h2>
+          <h2>The Wedding of<br />Raden Adhitya &amp; Riri Afrani</h2>
           <p className="thanks-date">{EVENT_LABEL}</p>
           <img className="thanks-flourish" src={UI.flourish} alt="" aria-hidden="true" />
           <div className="thanks-wayang thanks-floral-sunda" aria-hidden="true">
