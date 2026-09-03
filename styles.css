@@ -1810,7 +1810,7 @@ body.motion-ready .gallery-item:nth-child(6) {
 
   .couple-panel .person h3 {
     max-width: 440px;
-    min-height: 2.24em;
+    min-height: 3.36em;
     font-size: clamp(2rem, 2.35vw, 2.8rem);
   }
 
