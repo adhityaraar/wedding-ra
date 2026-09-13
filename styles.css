@@ -1999,6 +1999,12 @@ body.motion-ready .gallery-item:nth-child(6) {
 
 }
 
+@media (min-width: 421px) and (max-width: 899px) {
+  .invite-cover .section-florals {
+    bottom: clamp(-150px, calc(200px - 27svh), 15px);
+  }
+}
+
 @media (max-width: 420px) {
   body {
     background:
