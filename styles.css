@@ -1954,7 +1954,7 @@ body.motion-ready .gallery-item:nth-child(6) {
 @media (max-width: 899px) {
   .invite-cover {
     padding-top: clamp(48px, 11vw, 62px);
-    padding-bottom: clamp(58px, 14vw, 76px);
+    padding-bottom: 76px;
   }
 
   .cover-flourish {
@@ -1967,7 +1967,15 @@ body.motion-ready .gallery-item:nth-child(6) {
   }
 
   .invite-cover .section-florals {
-    bottom: 15px;
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: clamp(84px, 22.5vw, 132px);
+    margin-top: 18px;
+  }
+
+  .invite-cover .section-florals img {
+    width: clamp(45px, 12vw, 70px);
   }
 
   .cover-copy {
@@ -1997,12 +2005,6 @@ body.motion-ready .gallery-item:nth-child(6) {
     font-size: clamp(0.88rem, 3.8vw, 1rem);
   }
 
-}
-
-@media (min-width: 421px) and (max-width: 899px) {
-  .invite-cover .section-florals {
-    bottom: clamp(-150px, calc(200px - 27svh), 15px);
-  }
 }
 
 @media (max-width: 420px) {
