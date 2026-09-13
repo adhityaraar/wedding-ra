@@ -505,17 +505,14 @@ img {
   width: clamp(70px, 9vw, 112px);
   height: auto;
   opacity: 0.34;
-  transform-origin: bottom center;
 }
 
 .section-florals img:first-child {
   left: clamp(18px, 4vw, 58px);
-  transform: rotate(12deg);
 }
 
 .section-florals img:last-child {
   right: clamp(18px, 4vw, 58px);
-  transform: rotate(-12deg);
 }
 
 .person {
