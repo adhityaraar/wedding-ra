@@ -474,43 +474,28 @@ img {
   background: rgba(162, 126, 69, 0.62);
 }
 
-.cover-wayang {
+.section-florals {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 26px;
+  inset: 0;
   z-index: 0;
-  display: block;
-  width: 100%;
-  height: 180px;
-  margin: 0;
-  padding: 0;
-  opacity: 0.28;
-  overflow: visible;
   pointer-events: none;
 }
 
-.cover-wayang .wayang {
+.section-florals img {
   position: absolute;
-  bottom: 0;
+  top: clamp(24px, 3vw, 32px);
+  width: clamp(54px, 9.5vw, 142px);
   height: auto;
-  object-fit: contain;
-  filter: var(--sunda-green-filter);
-  transform-origin: bottom center;
+  opacity: 0.26;
 }
 
-.wayang-left-large {
-  left: 12px;
-  z-index: 1;
-  width: clamp(72px, 21vw, 98px);
-  transform: rotate(-3deg);
+.section-florals img:first-child {
+  left: clamp(12px, 3vw, 48px);
 }
 
-.wayang-right-large {
-  right: 12px;
-  z-index: 1;
-  width: clamp(72px, 21vw, 98px);
-  transform: rotate(3deg);
+.section-florals img:last-child {
+  right: clamp(12px, 3vw, 48px);
+  transform: scaleX(-1);
 }
 
 .person {
@@ -1444,13 +1429,23 @@ img {
 }
 
 .thanks-panel {
-  min-height: 640px;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  padding-top: 100px;
-  padding-bottom: 190px;
+  padding-top: clamp(72px, 10vh, 100px);
+  padding-bottom: clamp(104px, 13vh, 140px);
+}
+
+.thanks-photo {
+  position: relative;
+  z-index: 2;
+  width: min(76vw, 382px);
+  margin: 0 auto 28px;
+  border: 1px solid var(--sunda-gold);
+  background: var(--sunda-ivory);
+  box-shadow: 0 0 0 1px rgba(38, 60, 51, 0.24), 0 16px 44px rgba(38, 60, 51, 0.1);
 }
 
 .thanks-panel p {
@@ -1490,22 +1485,6 @@ img {
   opacity: 0.7;
 }
 
-.thanks-wayang {
-  position: absolute;
-  inset: auto 0 0;
-  z-index: 1;
-  height: 260px;
-  opacity: 0.76;
-  pointer-events: none;
-}
-
-.thanks-wayang img {
-  position: absolute;
-  bottom: -16px;
-  width: clamp(104px, 28vw, 148px);
-  filter: var(--sunda-green-filter);
-}
-
 .invite-shell .dark-button {
   color: var(--cds-text-on-color);
   background: var(--sunda-green);
@@ -1524,16 +1503,6 @@ img {
 
 .invite-shell .ghost-button:hover {
   background: rgba(162, 126, 69, 0.08);
-}
-
-.thanks-wayang img:nth-child(1) {
-  left: -10px;
-  transform: rotate(-8deg);
-}
-
-.thanks-wayang img:nth-child(2) {
-  right: -10px;
-  transform: rotate(8deg);
 }
 
 .footer-panel {
@@ -1812,23 +1781,6 @@ body.motion-ready .gallery-item:nth-child(6) {
     margin-bottom: clamp(18px, 2vh, 24px);
   }
 
-  .cover-wayang {
-    bottom: 34px;
-    height: 220px;
-  }
-
-  .cover-wayang .wayang-left-large {
-    left: clamp(38px, 4.8vw, 72px);
-    bottom: 0;
-    width: clamp(118px, 10vw, 156px);
-  }
-
-  .cover-wayang .wayang-right-large {
-    right: clamp(38px, 4.8vw, 72px);
-    bottom: 0;
-    width: clamp(118px, 10vw, 156px);
-  }
-
   .cover-copy {
     margin-top: 32px;
     text-align: center;
@@ -1919,25 +1871,13 @@ body.motion-ready .gallery-item:nth-child(6) {
   }
 
   .thanks-panel {
-    min-height: 720px;
-    padding-top: 116px;
-    padding-bottom: 220px;
+    padding-top: 104px;
+    padding-bottom: 80px;
   }
 
-  .thanks-wayang {
-    height: 330px;
-  }
-
-  .thanks-wayang img {
-    width: clamp(176px, 14vw, 230px);
-  }
-
-  .thanks-wayang img:nth-child(1) {
-    left: clamp(54px, 5vw, 94px);
-  }
-
-  .thanks-wayang img:nth-child(2) {
-    right: clamp(54px, 5vw, 94px);
+  .thanks-photo {
+    width: min(30vw, 360px);
+    max-width: 360px;
   }
 
   .save-date .section-heading,
@@ -1996,25 +1936,6 @@ body.motion-ready .gallery-item:nth-child(6) {
     margin-top: 28px;
   }
 
-  .cover-wayang {
-    bottom: 24px;
-    height: 160px;
-  }
-
-  .cover-wayang .wayang-left-large,
-  .cover-wayang .wayang-right-large {
-    bottom: 0;
-    width: 108px;
-  }
-
-  .cover-wayang .wayang-left-large {
-    left: 48px;
-  }
-
-  .cover-wayang .wayang-right-large {
-    right: 48px;
-  }
-
 }
 
 @media (max-width: 899px) {
@@ -2049,25 +1970,6 @@ body.motion-ready .gallery-item:nth-child(6) {
   .date {
     margin-top: 10px;
     font-size: clamp(0.88rem, 3.8vw, 1rem);
-  }
-
-  .cover-wayang {
-    bottom: 16px;
-    height: clamp(92px, 25vw, 112px);
-  }
-
-  .cover-wayang .wayang-left-large,
-  .cover-wayang .wayang-right-large {
-    bottom: 0;
-    width: clamp(58px, 17vw, 76px);
-  }
-
-  .cover-wayang .wayang-left-large {
-    left: clamp(8px, 3vw, 14px);
-  }
-
-  .cover-wayang .wayang-right-large {
-    right: clamp(8px, 3vw, 14px);
   }
 
 }

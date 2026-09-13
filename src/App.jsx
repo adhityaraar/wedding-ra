@@ -3,6 +3,7 @@ import "../styles.css";
 
 /* ── constants ── */
 const PHOTOS = {
+  firstCover: new URL("../assets/photos/cover1.webp", import.meta.url).href,
   cover: new URL("../assets/photos/cover2.webp", import.meta.url).href,
   groom: new URL("../assets/photos/groom.webp", import.meta.url).href,
   bride: new URL("../assets/photos/bride.webp", import.meta.url).href,
@@ -270,9 +271,9 @@ export default function App() {
             </h1>
             <p className="date">{EVENT_FULL_DATE}</p>
           </div>
-          <div className="cover-wayang cover-floral-sunda" aria-hidden="true">
-            <img className="wayang wayang-left-large" src={UI.floralSunda} alt="" />
-            <img className="wayang wayang-right-large" src={UI.floralSunda} alt="" />
+          <div className="section-florals" aria-hidden="true">
+            <img src={UI.floralSunda} alt="" />
+            <img src={UI.floralSunda} alt="" />
           </div>
         </section>
         {/* ② Couple */}
@@ -527,10 +528,13 @@ export default function App() {
 
         {/* ⑨ Thank You */}
         <section className="section-panel thanks-panel continuous-section" id="thanks">
+          <div className="oval-frame thanks-photo">
+            <img src={PHOTOS.firstCover} alt="Riri and Adhit" />
+          </div>
           <h2>The Wedding of<br />Raden Adhitya <span className="thanks-amp">&amp;</span> Riri Afrani</h2>
           <p className="thanks-date">{EVENT_LABEL}</p>
           <img className="thanks-flourish" src={UI.flourish} alt="" aria-hidden="true" />
-          <div className="thanks-wayang thanks-floral-sunda" aria-hidden="true">
+          <div className="section-florals" aria-hidden="true">
             <img src={UI.floralSunda} alt="" />
             <img src={UI.floralSunda} alt="" />
           </div>
