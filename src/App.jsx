@@ -530,10 +530,6 @@ export default function App() {
           <h2>The Wedding of<br />Raden Adhitya <span className="thanks-amp">&amp;</span> Riri Afrani</h2>
           <p className="thanks-date">{EVENT_LABEL}</p>
           <img className="thanks-flourish" src={UI.flourish} alt="" aria-hidden="true" />
-          <div className="section-florals" aria-hidden="true">
-            <img src={UI.floralSunda} alt="" />
-            <img src={UI.floralSunda} alt="" />
-          </div>
         </section>
 
         <footer className="footer-panel">
