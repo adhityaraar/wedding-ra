@@ -3,8 +3,8 @@ import "../styles.css";
 
 /* ── constants ── */
 const PHOTOS = {
-  firstCover: new URL("../assets/photos/cover1.webp", import.meta.url).href,
   cover: new URL("../assets/photos/cover2.webp", import.meta.url).href,
+  ending: new URL("../assets/photos/cover-end.png", import.meta.url).href,
   groom: new URL("../assets/photos/groom.webp", import.meta.url).href,
   bride: new URL("../assets/photos/bride.webp", import.meta.url).href,
 };
@@ -243,7 +243,7 @@ export default function App() {
         <div className="opening-shade" aria-hidden="true" />
         <div className="opening-details">
           <p className="kicker">The Wedding of</p>
-          <h1>Riri &amp; Adhit</h1>
+          <h1>Riri <span className="opening-amp">&amp;</span> Adhit</h1>
           <p className="guest-copy">Dear</p>
           <p className="guest-copy"><strong>{guestName}</strong></p>
           <p className="guest-copy">Please be a part of our happiest moment</p>
@@ -441,10 +441,6 @@ export default function App() {
                 <p className="gift-copy-status" aria-live="polite">{giftCopyStatus}</p>
               </div>
 
-              <div className="gift-form-heading">
-                <h3>Fill the form below, please</h3>
-              </div>
-
               <div className="stack-form gift-details-form">
                 <label>
                   <span>Name</span>
@@ -528,9 +524,7 @@ export default function App() {
 
         {/* ⑨ Thank You */}
         <section className="section-panel thanks-panel continuous-section" id="thanks">
-          <div className="oval-frame thanks-photo">
-            <img src={PHOTOS.firstCover} alt="Riri and Adhit" />
-          </div>
+          <img className="thanks-image" src={PHOTOS.ending} alt="Illustration of Riri and Adhit" />
           <h2>The Wedding of<br />Raden Adhitya <span className="thanks-amp">&amp;</span> Riri Afrani</h2>
           <p className="thanks-date">{EVENT_LABEL}</p>
           <img className="thanks-flourish" src={UI.flourish} alt="" aria-hidden="true" />
