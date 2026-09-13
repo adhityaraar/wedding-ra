@@ -258,22 +258,24 @@ export default function App() {
 
         {/* ① Cover */}
         <section className="section-panel invite-cover" id="home">
-          <img className="cover-flourish" src={UI.flourish} alt="" aria-hidden="true" />
-          <div className="oval-frame">
-            <img src={PHOTOS.cover} alt="Riri and Adhit" />
-          </div>
-          <div className="cover-copy">
-            <p className="kicker">The Wedding of</p>
-            <h1 className="cover-names">
-              <span>Raden Adhitya</span>
-              <span className="cover-amp">&amp;</span>
-              <span>Riri Afrani</span>
-            </h1>
-            <p className="date">{EVENT_FULL_DATE}</p>
-          </div>
-          <div className="section-florals" aria-hidden="true">
-            <img src={UI.floralSunda} alt="" />
-            <img src={UI.floralSunda} alt="" />
+          <div className="cover-artwork">
+            <img className="cover-flourish" src={UI.flourish} alt="" aria-hidden="true" />
+            <div className="oval-frame">
+              <img src={PHOTOS.cover} alt="Riri and Adhit" />
+            </div>
+            <div className="cover-copy">
+              <p className="kicker">The Wedding of</p>
+              <h1 className="cover-names">
+                <span>Raden Adhitya</span>
+                <span className="cover-amp">&amp;</span>
+                <span>Riri Afrani</span>
+              </h1>
+              <p className="date">{EVENT_FULL_DATE}</p>
+            </div>
+            <div className="section-florals" aria-hidden="true">
+              <img src={UI.floralSunda} alt="" />
+              <img src={UI.floralSunda} alt="" />
+            </div>
           </div>
         </section>
         {/* ② Couple */}

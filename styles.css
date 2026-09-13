@@ -365,6 +365,14 @@ img {
   content: none;
 }
 
+.cover-artwork {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .cover-flourish {
   position: relative;
   z-index: 2;
@@ -1744,6 +1752,10 @@ body.motion-ready .gallery-item:nth-child(6) {
 }
 
 @media (min-width: 900px) {
+  .cover-artwork {
+    display: contents;
+  }
+
   body {
     background:
       linear-gradient(var(--paper-overlay), var(--paper-overlay)),
@@ -1946,12 +1958,16 @@ body.motion-ready .gallery-item:nth-child(6) {
   }
 
   .cover-flourish {
-    width: min(45vw, 174px);
+    width: min(45vw, 220px);
     margin-bottom: 14px;
   }
 
   .invite-cover .oval-frame {
-    width: min(84vw, 360px);
+    width: min(84vw, 100%, 420px);
+  }
+
+  .invite-cover .section-florals {
+    bottom: 15px;
   }
 
   .cover-copy {
@@ -1959,13 +1975,21 @@ body.motion-ready .gallery-item:nth-child(6) {
   }
 
   .cover-copy h1 {
-    max-width: min(88vw, 360px);
-    font-size: clamp(2.5rem, 10.8vw, 3.1rem);
+    max-width: min(88vw, 100%, 420px);
+    font-size: clamp(2.5rem, 10.8vw, 3.35rem);
     line-height: 0.98;
   }
 
   .cover-copy .kicker {
-    font-size: clamp(0.94rem, 4vw, 1.08rem);
+    font-size: clamp(0.94rem, 4vw, 1.2rem);
+  }
+
+  .cover-copy .date {
+    font-size: clamp(0.92rem, 3.8vw, 1.1rem);
+  }
+
+  .bottom-nav {
+    width: min(464px, calc(100vw - 24px));
   }
 
   .date {
