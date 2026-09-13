@@ -272,8 +272,10 @@ export default function App() {
               <p className="date">{EVENT_LABEL}</p>
             </div>
             <div className="section-florals" aria-hidden="true">
-              <img src={UI.floralSunda} alt="" />
-              <img src={UI.floralSunda} alt="" />
+              <img className="floral-left-large" src={UI.floralSunda} alt="" />
+              <img className="floral-left-small" src={UI.floralSunda} alt="" />
+              <img className="floral-right-large" src={UI.floralSunda} alt="" />
+              <img className="floral-right-small" src={UI.floralSunda} alt="" />
             </div>
           </div>
         </section>
