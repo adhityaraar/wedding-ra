@@ -6,22 +6,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Playfair Local";
-  src: url("assets/fonts/playfair-display-italic.woff2") format("woff2");
-  font-weight: 400 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Crimson Local";
-  src: url("assets/fonts/crimson-text.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --cds-background: #f6f5f5;
   --cds-layer-01: #ffffff;
@@ -37,8 +21,7 @@
   --cds-focus: #161616;
   --cds-overlay: rgba(22, 22, 22, 0.72);
   --cds-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
-  --display: "Crimson Local", Georgia, serif;
-  --serif: "Playfair Local", Georgia, serif;
+  --font-family: "Playfair Local", Georgia, serif;
   --sunda-ivory: #f7f2e8;
   --sunda-green: #263c33;
   --sunda-gold: #a27e45;
@@ -67,7 +50,7 @@ body {
   background:
     linear-gradient(var(--paper-overlay), var(--paper-overlay)),
     url("assets/ui/texture.png") center top / 820px auto;
-  font-family: var(--serif);
+  font-family: var(--font-family);
   font-size: 16px;
   line-height: 1.5;
   text-rendering: optimizeLegibility;
@@ -148,7 +131,7 @@ img {
 }
 
 .opening-photo {
-  background: url("assets/photos/cover.webp") center / cover;
+  background: url("assets/photos/cover1.webp") center / cover;
   transform: scale(1.04);
   animation: openingDrift 18s var(--motion-expressive) infinite alternate;
 }
@@ -170,7 +153,7 @@ img {
 .kicker {
   margin: 0 0 8px;
   color: inherit;
-  font-family: var(--serif);
+  font-family: var(--font-family);
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -181,7 +164,7 @@ img {
 .opening-details h1 {
   max-width: 1040px;
   margin: 0 auto 24px;
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-size: clamp(3.7rem, 5.65vw, 5.1rem);
   font-weight: 400;
   letter-spacing: 0;
@@ -191,7 +174,7 @@ img {
 .guest-copy {
   margin: 0 0 24px;
   color: #f4f4f4;
-  font-family: var(--serif);
+  font-family: var(--font-family);
   font-size: 1.18rem;
   line-height: 1.35;
 }
@@ -199,7 +182,7 @@ img {
 .guest-copy strong {
   display: inline-block;
   color: #ffffff;
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-size: clamp(1.55rem, 5.2vw, 1.9rem);
   font-weight: 600;
   line-height: 1.12;
@@ -216,7 +199,7 @@ img {
   border-radius: var(--button-radius);
   padding: 14px 22px;
   cursor: pointer;
-  font-family: var(--serif);
+  font-family: var(--font-family);
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0;
@@ -330,7 +313,7 @@ img {
 .thanks-panel h2 {
   margin: 0;
   color: var(--cds-text-primary);
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.16;
@@ -437,7 +420,7 @@ img {
 .cover-copy .kicker {
   margin-bottom: 8px;
   color: var(--sunda-green);
-  font-family: var(--serif);
+  font-family: var(--font-family);
   font-size: clamp(1rem, 3.7vw, 1.18rem);
   font-weight: 400;
   letter-spacing: 0;
@@ -468,7 +451,7 @@ img {
 .date {
   margin: 12px 0 0;
   color: var(--cds-text-secondary);
-  font-family: var(--serif);
+  font-family: var(--font-family);
   font-size: 1.05rem;
   font-weight: 400;
 }
@@ -559,7 +542,7 @@ img {
   max-width: 420px;
   margin: 24px auto 8px;
   color: var(--sunda-green);
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-size: clamp(1.72rem, 6.4vw, 2.55rem);
   font-weight: 400;
   line-height: 1.12;
@@ -571,7 +554,7 @@ img {
   max-width: 360px;
   margin: 0 auto;
   color: var(--cds-text-secondary);
-  font-family: var(--serif);
+  font-family: var(--font-family);
   font-size: 1.05rem;
   line-height: 1.38;
   text-align: center;
@@ -581,7 +564,7 @@ img {
 .ampersand {
   margin: 0;
   color: var(--sunda-gold);
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-size: 3.2rem;
   line-height: 1;
 }
@@ -674,7 +657,7 @@ img {
 .save-date-heading p {
   margin-top: 4px;
   color: var(--cds-text-primary);
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-size: clamp(1.3rem, 4.8vw, 1.65rem);
 }
 
@@ -745,7 +728,7 @@ img {
 .countdown i {
   margin-top: -20px;
   color: var(--sunda-gold);
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-size: 2.3rem;
   font-style: normal;
 }
@@ -754,7 +737,7 @@ img {
   display: block;
   min-width: 2ch;
   color: var(--sunda-green);
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-size: clamp(2rem, 7vw, 3.25rem);
   font-weight: 400;
   line-height: 1;
@@ -763,7 +746,7 @@ img {
 
 .countdown span {
   color: var(--cds-text-secondary);
-  font-family: var(--serif);
+  font-family: var(--font-family);
   font-size: 0.9rem;
 }
 
@@ -782,7 +765,7 @@ img {
   min-height: 24px;
   margin: 0 auto 20px;
   color: var(--cds-text-secondary);
-  font-family: var(--serif);
+  font-family: var(--font-family);
 }
 
 .calendar-button {
@@ -820,7 +803,7 @@ img {
 .event-date p,
 .event-date h3 {
   margin: 0;
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-weight: 400;
   line-height: 1.18;
   color: var(--sunda-green);
@@ -881,7 +864,7 @@ img {
 
 .event-card h3 {
   margin: 0 0 4px;
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-size: clamp(3rem, 11vw, 4.2rem);
   font-weight: 400;
   color: var(--sunda-green);
@@ -892,7 +875,7 @@ img {
   max-width: 560px;
   margin: 0 auto 18px;
   color: var(--cds-text-secondary);
-  font-family: var(--serif);
+  font-family: var(--font-family);
   font-size: 1.05rem;
 }
 
@@ -1058,7 +1041,7 @@ img {
 
 .rsvp-confirmed h3 {
   margin: 0 auto 16px;
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-size: clamp(1.55rem, 5vw, 2rem);
   font-weight: 400;
   color: var(--sunda-green);
@@ -1067,63 +1050,30 @@ img {
 .rsvp-confirmed p {
   margin: 0 auto 24px;
   color: var(--cds-text-secondary);
-  font-family: var(--serif);
+  font-family: var(--font-family);
 }
 
 .rsvp-confirmed .dark-button {
   width: min(100%, 620px);
 }
 
-.bank-card {
-  padding: 30px 22px;
-  border: 1px solid rgba(162, 126, 69, 0.52);
-  background: rgba(255, 255, 255, 0.4);
-  text-align: center;
+.gift-panel .section-heading {
+  margin-bottom: 24px;
 }
 
-.bank-card h3 {
-  margin: 4px 0 24px;
-  font-family: var(--display);
-  font-size: clamp(1.8rem, 6vw, 2.5rem);
-  font-weight: 400;
-  color: var(--sunda-green);
+.gift-panel .section-heading h2 {
+  color: #303030;
 }
 
-.bank-card p {
-  margin: 0 0 6px;
-  font-family: var(--serif);
-}
-
-.bank-card .bank-label {
-  color: var(--cds-text-secondary);
-  font-family: var(--serif);
-  font-size: 0.82rem;
-  text-transform: uppercase;
-}
-
-.bank-card .account-number {
-  margin: 2px 0 6px;
-  color: var(--sunda-green);
-  font-family: var(--display);
-  font-size: 2rem;
-  font-variant-numeric: tabular-nums;
-}
-
-.bank-card .ghost-button {
-  min-width: 164px;
-  margin-top: 18px;
-}
-
-.gift-copy-status {
-  min-height: 20px;
-  margin-top: 10px !important;
-  color: var(--sunda-green);
-  font-size: 0.84rem;
+.gift-panel .section-heading p {
+  max-width: 580px;
+  margin-top: 8px;
+  color: #303030;
+  line-height: 1.35;
 }
 
 .gift-step {
   display: none;
-  gap: 16px;
   width: min(100%, 620px);
   margin: 0 auto;
 }
@@ -1139,17 +1089,9 @@ img {
   text-align: center;
 }
 
-.gift-step .bank-card h3 {
-  margin: 4px 0 24px;
-}
-
-.gift-step .bank-card p {
-  margin: 0 0 6px;
-}
-
 .gift-step > h3 {
   color: var(--sunda-green);
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-size: clamp(2rem, 7vw, 2.8rem);
   font-weight: 400;
 }
@@ -1159,31 +1101,42 @@ img {
 }
 
 .gift-details-step {
-  gap: 24px;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid rgba(22, 22, 22, 0.1);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(38, 60, 51, 0.08);
+}
+
+.gift-card-body {
+  display: grid;
+  gap: 26px;
+  padding: 24px 20px 32px;
 }
 
 .gift-bank-select {
   display: grid;
-  gap: 8px;
-  text-align: left;
+  gap: 10px;
+  text-align: center;
 }
 
-.gift-bank-select > span,
-.gift-details-form label > span {
-  color: var(--cds-text-secondary);
-  font-size: 0.82rem;
-  font-weight: 500;
+.gift-bank-select > span {
+  color: #303030;
+  font-family: var(--font-family);
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .gift-bank-select select {
   width: 100%;
   min-height: 48px;
-  padding: 12px 16px;
-  color: var(--sunda-green);
-  border: 1px solid rgba(162, 126, 69, 0.52);
-  border-radius: 0;
-  background: rgba(255, 255, 255, 0.62);
-  font-family: var(--serif);
+  padding: 10px 14px;
+  color: #303030;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  background: #ffffff;
+  font-family: var(--font-family);
   font-size: 1rem;
 }
 
@@ -1193,27 +1146,112 @@ img {
   outline: none;
 }
 
+.bank-card {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  color: #303030;
+  text-align: center;
+}
+
+.bank-card h3 {
+  font-family: var(--font-family);
+  font-size: 1.22rem;
+  font-weight: 400;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.bank-account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-family: var(--font-family);
+  font-size: 1.12rem;
+  line-height: 1.3;
+}
+
+.bank-account strong {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.gift-copy-button {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #c8c8c8;
+  border-radius: 4px;
+  padding: 0;
+  color: #303030;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.gift-copy-button:hover {
+  background: #f3f3f3;
+}
+
+.bank-card .account-owner {
+  font-family: var(--font-family);
+  font-size: 1.12rem;
+}
+
+.gift-copy-status {
+  color: var(--sunda-green);
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+}
+
+.gift-copy-status:empty {
+  display: none;
+}
+
 .gift-form-heading {
-  margin-top: 10px;
+  margin-top: 4px;
 }
 
 .gift-form-heading h3 {
-  color: var(--sunda-green);
-  font-family: var(--display);
-  font-size: clamp(1.6rem, 5vw, 2rem);
-  font-weight: 400;
-}
-
-.gift-form-heading p {
-  max-width: 440px;
-  margin: 8px auto 0;
-  color: var(--cds-text-secondary);
-  line-height: 1.4;
+  color: #303030;
+  font-family: var(--font-family);
+  font-size: clamp(1.4rem, 5vw, 1.7rem);
+  font-weight: 600;
 }
 
 .gift-details-form,
 .gift-proof-form {
   width: 100%;
+}
+
+.gift-details-form {
+  gap: 14px;
+}
+
+.gift-details-form label {
+  gap: 6px;
+}
+
+.gift-details-form label > span {
+  color: #303030;
+  font-family: var(--font-family);
+  font-size: 1.02rem;
+  font-weight: 500;
+}
+
+.gift-details-form input,
+.gift-details-form textarea {
+  border-color: #d0d0d0;
+  border-radius: 8px;
+  background: #ffffff;
+  font-family: var(--font-family);
+  font-size: 1rem;
+}
+
+.gift-details-form textarea {
+  min-height: 52px;
 }
 
 .amount-field {
@@ -1235,10 +1273,29 @@ img {
 }
 
 .gift-next-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  width: 100%;
+  min-height: 60px;
+  border-radius: 0;
+  border-color: #252525;
+  background: #252525;
+  font-family: var(--font-family);
+  font-size: 1.2rem;
+  font-weight: 600;
+  gap: 8px;
+}
+
+.gift-next-button span {
+  font-size: 1.5rem;
+  line-height: 0.8;
+}
+
+.gift-step:not(.gift-details-step) {
+  gap: 16px;
+  padding: 28px 24px;
+  border: 1px solid rgba(22, 22, 22, 0.1);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(38, 60, 51, 0.08);
 }
 
 .gift-summary {
@@ -1294,7 +1351,7 @@ img {
   color: var(--sunda-green);
   border: 1px solid var(--sunda-gold);
   border-radius: 50%;
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-size: 1.8rem;
   line-height: 1;
 }
@@ -1334,7 +1391,7 @@ img {
 
 .gift-success h3 {
   color: var(--sunda-green);
-  font-family: var(--display);
+  font-family: var(--font-family);
   font-size: clamp(2rem, 7vw, 2.8rem);
   font-weight: 400;
 }
@@ -1365,7 +1422,7 @@ img {
 
 .wish-card h3 {
   margin: 0 0 8px;
-  font-family: var(--serif);
+  font-family: var(--font-family);
   font-size: 1.15rem;
   font-weight: 400;
 }
@@ -1400,7 +1457,7 @@ img {
   max-width: 330px;
   margin: 18px auto 0;
   color: var(--cds-text-secondary);
-  font-family: var(--serif);
+  font-family: var(--font-family);
 }
 
 .thanks-panel h2 {

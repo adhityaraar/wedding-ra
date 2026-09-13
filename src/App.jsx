@@ -3,7 +3,7 @@ import "../styles.css";
 
 /* ── constants ── */
 const PHOTOS = {
-  cover: new URL("../assets/photos/cover.webp", import.meta.url).href,
+  cover: new URL("../assets/photos/cover2.webp", import.meta.url).href,
   groom: new URL("../assets/photos/groom.webp", import.meta.url).href,
   bride: new URL("../assets/photos/bride.webp", import.meta.url).href,
 };
@@ -417,49 +417,56 @@ export default function App() {
           </div>
 
           <form className={`gift-step gift-details-step${giftStep === 1 ? " is-active" : ""}`} data-step="1" onSubmit={handleGiftNext}>
-            <label className="gift-bank-select">
-              <span>Choose destination bank</span>
-              <select name="bank" defaultValue="mandiri" required>
-                <option value="mandiri">Bank Mandiri</option>
-              </select>
-            </label>
-            <div className="bank-card">
-              <p className="bank-label">Bank Mandiri</p>
-              <h3>Bank Mandiri (008)</h3>
-              <p>Account Number</p>
-              <p className="account-number" id="accountNumber">123456789</p>
-              <p className="account-owner">a/n Riri Afrani</p>
-              <button className="ghost-button" onClick={handleCopyAccount} type="button">Copy Number</button>
-              <p className="gift-copy-status" aria-live="polite">{giftCopyStatus}</p>
-            </div>
+            <div className="gift-card-body">
+              <label className="gift-bank-select">
+                <span>Choose destination bank</span>
+                <select name="bank" defaultValue="mandiri" required>
+                  <option value="mandiri">Bank Mandiri</option>
+                </select>
+              </label>
 
-            <div className="gift-form-heading">
-              <h3>Fill the form below, please</h3>
-              <p>Tell us who the gift is from before uploading your transfer proof.</p>
-            </div>
+              <div className="bank-card">
+                <h3>Bank Mandiri (008)</h3>
+                <p className="bank-account">
+                  <span>Account Number: <strong id="accountNumber">123456789</strong></span>
+                  <button className="gift-copy-button" onClick={handleCopyAccount} type="button" aria-label="Copy account number" title="Copy account number">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <rect x="8" y="8" width="11" height="12" rx="1" />
+                      <path d="M16 8V5a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h2" />
+                    </svg>
+                  </button>
+                </p>
+                <p className="account-owner">a/n Riri Afrani</p>
+                <p className="gift-copy-status" aria-live="polite">{giftCopyStatus}</p>
+              </div>
 
-            <div className="stack-form gift-details-form">
-              <label>
-                <span>Name</span>
-                <input type="text" name="name" defaultValue={guestName} placeholder="Your name" required autoComplete="name" />
-              </label>
-              <label>
-                <span>Account owner name</span>
-                <input type="text" name="accountName" placeholder="Name on the sender account" required />
-              </label>
-              <label>
-                <span>Message</span>
-                <textarea name="message" rows={3} placeholder="Write a short message (optional)" />
-              </label>
-              <label>
-                <span>Amount</span>
-                <div className="amount-field">
-                  <span aria-hidden="true">Rp</span>
-                  <input type="number" name="amount" min="1" step="1" inputMode="numeric" placeholder="0" required />
-                </div>
-              </label>
-              <button className="dark-button gift-next-button" type="submit">Next <span aria-hidden="true">→</span></button>
+              <div className="gift-form-heading">
+                <h3>Fill the form below, please</h3>
+              </div>
+
+              <div className="stack-form gift-details-form">
+                <label>
+                  <span>Name</span>
+                  <input type="text" name="name" defaultValue={guestName} placeholder="Your name" required autoComplete="name" />
+                </label>
+                <label>
+                  <span>Account owner name</span>
+                  <input type="text" name="accountName" placeholder="Name on the sender account" required />
+                </label>
+                <label>
+                  <span>Message</span>
+                  <textarea name="message" rows={3} placeholder="Write a short message (optional)" />
+                </label>
+                <label>
+                  <span>Amount</span>
+                  <div className="amount-field">
+                    <span aria-hidden="true">Rp</span>
+                    <input type="number" name="amount" min="1" step="1" inputMode="numeric" placeholder="0" required />
+                  </div>
+                </label>
+              </div>
             </div>
+            <button className="dark-button gift-next-button" type="submit">Next <span aria-hidden="true">›</span></button>
           </form>
 
           <div className={`gift-step${giftStep === 2 ? " is-active" : ""}`} data-step="2">
