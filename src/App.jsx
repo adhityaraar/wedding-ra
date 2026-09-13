@@ -25,7 +25,6 @@ const GALLERY_PHOTOS = [
 const EVENT_DATE   = new Date("2027-05-15T11:00:00+07:00");
 const EVENT_DAY    = "Saturday";
 const EVENT_LABEL  = "15 May 2027";
-const EVENT_FULL_DATE = `${EVENT_DAY}, ${EVENT_LABEL}`;
 const MAPS_URL     = "https://www.google.com/maps?vet=10CAAQoqAOahcKEwjYgr7yyJeWAxUAAAAAHQAAAAAQCQ..i&rlz=1C5GCCM_en&fvr=1&pvq=Cg0vZy8xMXczY19maF95IhgKEmt1bmluZ2FuIHBhbG1hIG9uZRACGAM&lqi=ChJrdW5pbmdhbiBwYWxtYSBvbmVI_f_av427gIAIWiAQABABEAIYABgBGAIiEmt1bmluZ2FuIHBhbG1hIG9uZZIBDXdlZGRpbmdfdmVudWU&cs=0&um=1&ie=UTF-8&fb=1&gl=ph&sa=X&ftid=0x2e69f300410d728f:0xd24295b67bf788d4";
 const CALENDAR_URL = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=The%20Wedding%20of%20Raden%20Adhitya%20%26%20Riri%20Afrani&dates=20270515T040000Z%2F20270515T060000Z&location=Palma%20One%2C%20Kuningan%2C%20Jakarta&details=We%20warmly%20invite%20you%20to%20celebrate%20the%20beginning%20of%20our%20forever.";
 const WISH_KEY     = "ririAdhitWeddingWishes";
@@ -270,7 +269,7 @@ export default function App() {
                 <span className="cover-amp">&amp;</span>
                 <span>Riri Afrani</span>
               </h1>
-              <p className="date">{EVENT_FULL_DATE}</p>
+              <p className="date">{EVENT_LABEL}</p>
             </div>
             <div className="section-florals" aria-hidden="true">
               <img src={UI.floralSunda} alt="" />
