@@ -289,7 +289,7 @@ export default function App() {
               <img src={PHOTOS.groom} alt="Adhit — the groom" />
             </div>
             <h3>Raden Adhitya Ardiansyah Ramadhan S.T., M.Sc.</h3>
-            <p>Son of Raden Asep Komarudin and Mimin Aminah</p>
+            <p>Son of Mr Raden Asep Komarudin and Mrs Mimin Aminah</p>
           </div>
           <div className="ampersand" aria-hidden="true">&amp;</div>
           <div className="person">
